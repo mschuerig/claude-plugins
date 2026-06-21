@@ -1,6 +1,6 @@
 code: music-domain-expert
-name: "Music Domain Expert"
-description: "Music theory, tuning systems, instrument idiomatics, and notation consultant for software development teams."
+name: "Music Domain Expert (BMad Agent)"
+description: "BMad agent persona (Adam). Music theory, tuning systems, instrument idiomatics, and notation consultant for software development teams."
 module_version: 1.0.0
 default_selected: false
 module_greeting: >

@@ -33,18 +33,26 @@ When you publish a new skill later, add it under `plugins/`, list it in
 
 The BMad agents under `bmad/` are installed by the BMad installer (not the
 Claude Code plugin system), **directly from GitHub** — no manual clone or build.
-The repo-root marketplace lists each agent by its BMad module code, so the
-installer can resolve it from the repository URL alone:
+
+**Install each agent via its subdirectory URL** (recommended). BMad then reads
+that subdirectory's own marketplace and shows exactly **one** agent — no clutter:
 
 ```
-bmad install --action update --yes --custom-source \
-  "https://github.com/mschuerig/claude-plugins@v1.0.0"
+# arc42 Documentation Architect (Gernot)
+https://github.com/mschuerig/claude-plugins/tree/v1.0.0/bmad/arc42-documentation-architect
+# Music Domain Expert (Adam)
+https://github.com/mschuerig/claude-plugins/tree/v1.0.0/bmad/music-domain-expert
 ```
 
-then select the **arc42 Documentation Architect** and/or **Music Domain Expert**
-modules. (A subdir URL such as `…/claude-plugins/tree/v1.0.0/bmad/music-domain-expert`
-also works for installing a single agent. Drop the `@v1.0.0` / `tree/v1.0.0` ref
-to track the default branch instead of a pinned release.)
+Drop the `/tree/v1.0.0` ref to track the default branch instead of a pinned
+release.
+
+> **Do not point the installer at the bare repo root for agents.** The root
+> marketplace must also list the two standalone Claude Code skills (that file is
+> the *only* place Claude Code's `/plugin` can read them). BMad lists every
+> plugin it finds, so a repo-root URL shows **all four** entries — the two agents
+> (suffixed *“(BMad Agent)”*) and the two skills, which are not BMad modules and
+> will fail if selected. The subdirectory URLs above avoid this entirely.
 
 **Why the generated files are committed.** The BMad installer (6.8.x) clones the
 repo but does **not** run `npm install`, so a plain clone must already be

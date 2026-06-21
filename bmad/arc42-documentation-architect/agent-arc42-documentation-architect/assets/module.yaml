@@ -1,6 +1,6 @@
 code: arc42-documentation-architect
-name: "arc42 Documentation Architect"
-description: "Creates and maintains arc42 architecture documentation with Mermaid UML diagrams."
+name: "arc42 Documentation Architect (BMad Agent)"
+description: "BMad agent persona (Gernot). Creates and maintains arc42 architecture documentation with Mermaid UML diagrams."
 module_version: 1.0.0
 default_selected: false
 module_greeting: >
