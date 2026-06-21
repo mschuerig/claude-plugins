@@ -1,8 +1,7 @@
-# Generated BMad module artifacts — assembled from canonical sources by `make build`.
-# Single source of truth: plugins/<domain>/skills/ and bmad/_shared/.
-bmad/arc42-documentation-architect/agent-arc42-documentation-architect/references/
-bmad/arc42-documentation-architect/agent-arc42-documentation-architect/scripts/
-bmad/music-domain-expert/agent-music-domain-expert/scripts/
+# NOTE: the BMad modules' generated references/ and scripts/ are intentionally
+# COMMITTED (not ignored). The BMad installer clones this repo but does not run
+# `npm install`/`prepare`, so a plain clone must already be complete. They are
+# still generated from canonical sources by `make build`; CI fails if they drift.
 
 # Node
 node_modules/

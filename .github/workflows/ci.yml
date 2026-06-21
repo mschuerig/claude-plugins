@@ -20,26 +20,22 @@ jobs:
         with:
           node-version: '20'
 
-      # Assemble the BMad module forms exactly as a consumer's install would,
-      # via the npm `prepare` lifecycle (this is what BMad triggers on clone).
-      - name: Assemble BMad modules (npm prepare)
-        run: npm install --no-audit --no-fund
+      # The BMad installer clones this repo but does NOT run npm install, so the
+      # generated references/scripts are committed. Rebuild and fail if the
+      # committed artifacts drift from their canonical sources.
+      - name: Rebuild generated BMad artifacts
+        run: node tools/build.mjs
 
-      - name: Verify generated arc42 references match the canonical source
+      - name: Fail if committed artifacts are stale (drift check)
         run: |
-          diff -r \
-            plugins/arc42-documentation/skills/arc42-documentation/references \
-            bmad/arc42-documentation-architect/agent-arc42-documentation-architect/references
-          echo "arc42 references in sync ✓"
+          git diff --exit-code -- bmad/ \
+            || { echo "::error::bmad/ generated files are stale — run 'make build' and commit."; exit 1; }
+          echo "generated BMad artifacts in sync ✓"
 
-      - name: Verify shared BMad scripts were distributed
-        run: |
-          for m in arc42-documentation-architect/agent-arc42-documentation-architect \
-                   music-domain-expert/agent-music-domain-expert; do
-            test -f "bmad/$m/scripts/merge-config.py"
-            test -f "bmad/$m/scripts/merge-help-csv.py"
-          done
-          echo "shared scripts distributed ✓"
+      # Guard the two defects that previously broke BMad installation:
+      # (1) module code resolvable from the ROOT marketplace; (2) generated files present.
+      - name: Validate BMad marketplace resolution
+        run: node tools/check-bmad-marketplace.mjs
 
       - name: Validate SKILL.md frontmatter (name + description present)
         run: |
