@@ -17,18 +17,17 @@ This repository is a plugin marketplace. Add it once, then install whichever
 plugins you want:
 
 ```
-/plugin marketplace add schuerig/claude-plugins
-/plugin install arc42-documentation@schuerig
-/plugin install music-domain-expert@schuerig
+/plugin marketplace add mschuerig/claude-plugins
+/plugin install arc42-documentation@mschuerig
+/plugin install music-domain-expert@mschuerig
 ```
 
-(Replace `schuerig/claude-plugins` with the actual GitHub `owner/repo` once
-pushed. The marketplace id — the part after `@` — is the `name` field in
+(The marketplace id — the part after `@` — is the `name` field in
 `.claude-plugin/marketplace.json`.)
 
 When you publish a new skill later, add it under `plugins/`, list it in
 `.claude-plugin/marketplace.json`, and existing users pick it up with
-`/plugin marketplace update schuerig`.
+`/plugin marketplace update mschuerig`.
 
 ## Install — BMad agents
 
