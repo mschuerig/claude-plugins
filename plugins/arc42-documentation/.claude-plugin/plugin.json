@@ -1,0 +1,8 @@
+{
+  "name": "arc42-documentation",
+  "description": "Create, update, review, and audit arc42 architecture documentation — the 12-section template with Mermaid diagrams in Markdown.",
+  "version": "1.0.0",
+  "author": { "name": "Michael Schürig", "email": "michael@schuerig.de" },
+  "keywords": ["arc42", "architecture", "documentation", "mermaid"],
+  "license": "MIT"
+}

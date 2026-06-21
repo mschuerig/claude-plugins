@@ -1,0 +1,25 @@
+{
+  "name": "schuerig",
+  "owner": {
+    "name": "Michael Schürig",
+    "email": "michael@schuerig.de"
+  },
+  "plugins": [
+    {
+      "name": "arc42-documentation",
+      "source": "./plugins/arc42-documentation",
+      "description": "Create, update, review, and audit arc42 architecture documentation — the 12-section template with Mermaid diagrams in Markdown.",
+      "version": "1.0.0",
+      "author": { "name": "Michael Schürig" },
+      "keywords": ["arc42", "architecture", "documentation", "mermaid"]
+    },
+    {
+      "name": "music-domain-expert",
+      "source": "./plugins/music-domain-expert",
+      "description": "Music-domain consultant for software projects — surfaces hidden assumptions in code, specs, and data models that touch theory, tuning, intonation, instruments, or notation.",
+      "version": "1.0.0",
+      "author": { "name": "Michael Schürig" },
+      "keywords": ["music", "music-theory", "tuning", "notation", "domain-expert"]
+    }
+  ]
+}

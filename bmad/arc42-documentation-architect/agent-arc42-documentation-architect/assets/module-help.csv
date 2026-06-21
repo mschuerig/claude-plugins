@@ -1,0 +1,7 @@
+module,skill,display-name,menu-code,description,action,args,phase,after,before,required,output-location,outputs
+arc42 Documentation Architect,agent-arc42-documentation-architect,arc42 Documentation Architect,A4,Talk to Gernot about arc42 architecture documentation for this project.,,,anytime,,,false,,architecture documentation
+arc42 Documentation Architect,agent-arc42-documentation-architect,Initialize arc42 Docs,IN,Generate initial arc42 documentation for the project from codebase and existing artifacts.,initialize-docs,,anytime,,,false,,arc42 documentation set
+arc42 Documentation Architect,agent-arc42-documentation-architect,Update arc42 Section,US,Update a specific arc42 section against current state.,update-section,,anytime,agent-arc42-documentation-architect:initialize-docs,,false,,arc42 section update
+arc42 Documentation Architect,agent-arc42-documentation-architect,Review and Suggest Updates,RV,Compare existing arc42 docs to current state and propose prioritized updates.,review-suggest,,anytime,agent-arc42-documentation-architect:initialize-docs,,false,,arc42 review report
+arc42 Documentation Architect,agent-arc42-documentation-architect,arc42 Doc Status,DS,Audit completeness and consistency of existing arc42 documentation.,doc-status,,anytime,agent-arc42-documentation-architect:initialize-docs,,false,,arc42 status report
+arc42 Documentation Architect,agent-arc42-documentation-architect,Configure Module,SU,Register or reconfigure the arc42 Documentation Architect module for this project.,configure,,anytime,,,false,,module config

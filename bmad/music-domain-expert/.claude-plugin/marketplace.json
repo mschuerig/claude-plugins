@@ -1,0 +1,24 @@
+{
+  "name": "music-domain-expert",
+  "owner": {
+    "name": "Michael Schürig"
+  },
+  "license": "",
+  "homepage": "",
+  "repository": "",
+  "keywords": ["bmad", "music", "music-theory", "domain-expert"],
+  "plugins": [
+    {
+      "name": "music-domain-expert",
+      "source": "./",
+      "description": "Music theory, tuning systems, instrument idiomatics, and notation consultant for software development teams.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Michael Schürig"
+      },
+      "skills": [
+        "./agent-music-domain-expert"
+      ]
+    }
+  ]
+}

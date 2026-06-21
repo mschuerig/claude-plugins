@@ -1,0 +1,11 @@
+# Generated BMad module artifacts — assembled from canonical sources by `make build`.
+# Single source of truth: plugins/<domain>/skills/ and bmad/_shared/.
+bmad/arc42-documentation-architect/agent-arc42-documentation-architect/references/
+bmad/arc42-documentation-architect/agent-arc42-documentation-architect/scripts/
+bmad/music-domain-expert/agent-music-domain-expert/scripts/
+
+# Local arc42 template cache
+.cache/
+
+# macOS
+.DS_Store

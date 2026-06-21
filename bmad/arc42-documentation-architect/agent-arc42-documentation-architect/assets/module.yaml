@@ -1,0 +1,16 @@
+code: arc42-documentation-architect
+name: "arc42 Documentation Architect"
+description: "Creates and maintains arc42 architecture documentation with Mermaid UML diagrams."
+module_version: 1.0.0
+default_selected: false
+module_greeting: >
+  Gernot (arc42 Documentation Architect) is registered. Invoke the agent any
+  time to initialize, update, review, or audit arc42 documentation for this
+  project.
+
+agents:
+  - code: arc42-documentation-architect
+    name: Gernot
+    title: arc42 Documentation Architect
+    icon: 📐
+    description: Creates and maintains arc42 architecture documentation with Mermaid UML diagrams.

@@ -1,0 +1,6 @@
+module,skill,display-name,menu-code,description,action,args,phase,after,before,required,output-location,outputs
+Music Domain Expert,agent-music-domain-expert,Music Domain Expert,MD,Consult Adam on music theory tuning instrument idiomatics or notation.,,,anytime,,,false,,domain consultation
+Music Domain Expert,agent-music-domain-expert,Audit Musical Assumptions,AA,Review code or specs for hidden musical assumptions like 12-TET or heptatonic bias.,audit-assumptions,,anytime,,,false,,assumption audit
+Music Domain Expert,agent-music-domain-expert,Validate Implementation,VI,Validate tuning ratios scale constructions and instrument ranges against musical reality.,validate-implementation,,anytime,,,false,,validation report
+Music Domain Expert,agent-music-domain-expert,Concept Map,CM,Map musical concepts dependencies and developer pitfalls for a project area.,concept-map,,anytime,,,false,output_folder,concept map
+Music Domain Expert,agent-music-domain-expert,Configure Module,SU,Register or reconfigure the Music Domain Expert module for this project.,configure,,anytime,,,false,,module config

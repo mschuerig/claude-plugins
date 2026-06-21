@@ -1,0 +1,24 @@
+{
+  "name": "arc42-documentation-architect",
+  "owner": {
+    "name": "Michael Schürig"
+  },
+  "license": "",
+  "homepage": "",
+  "repository": "",
+  "keywords": ["bmad", "arc42", "architecture", "documentation"],
+  "plugins": [
+    {
+      "name": "arc42-documentation-architect",
+      "source": "./",
+      "description": "Creates and maintains arc42 architecture documentation with Mermaid UML diagrams.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Michael Schürig"
+      },
+      "skills": [
+        "./agent-arc42-documentation-architect"
+      ]
+    }
+  ]
+}

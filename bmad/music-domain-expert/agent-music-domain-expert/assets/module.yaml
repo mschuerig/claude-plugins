@@ -1,0 +1,16 @@
+code: music-domain-expert
+name: "Music Domain Expert"
+description: "Music theory, tuning systems, instrument idiomatics, and notation consultant for software development teams."
+module_version: 1.0.0
+default_selected: false
+module_greeting: >
+  Adam (Music Domain Expert) is registered. Invoke the agent any time to consult
+  on music theory, tuning systems, instrument idiomatics, or notation, or to
+  audit code for hidden musical assumptions.
+
+agents:
+  - code: music-domain-expert
+    name: Adam
+    title: Music Domain Expert
+    icon: 🎵
+    description: Music theory, tuning systems, instrument idiomatics, and notation consultant for software development teams.
