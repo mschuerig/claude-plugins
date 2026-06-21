@@ -4,6 +4,9 @@ bmad/arc42-documentation-architect/agent-arc42-documentation-architect/reference
 bmad/arc42-documentation-architect/agent-arc42-documentation-architect/scripts/
 bmad/music-domain-expert/agent-music-domain-expert/scripts/
 
+# Node
+node_modules/
+
 # Local arc42 template cache
 .cache/
 

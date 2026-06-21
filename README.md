@@ -31,22 +31,31 @@ When you publish a new skill later, add it under `plugins/`, list it in
 
 ## Install — BMad agents
 
-The BMad modules under `bmad/` are installed by the BMad installer, not the
-Claude Code plugin system. Reference them as custom modules by local path, e.g.
-in a project's `_bmad/_config/manifest.yaml`:
+The BMad agents under `bmad/` are installed by the BMad installer (not the
+Claude Code plugin system). They install **directly from GitHub** — no manual
+clone or build.
 
-```yaml
-- name: arc42-documentation-architect
-  source: custom
-  localPath: /path/to/claude-plugins/bmad/arc42-documentation-architect
-- name: music-domain-expert
-  source: custom
-  localPath: /path/to/claude-plugins/bmad/music-domain-expert
+In the BMad installer's custom-module flow, paste the GitHub URL of the agent's
+subdirectory (optionally pinned to a release tag):
+
+```
+https://github.com/mschuerig/claude-plugins/tree/v1.0.0/bmad/arc42-documentation-architect
+https://github.com/mschuerig/claude-plugins/tree/v1.0.0/bmad/music-domain-expert
 ```
 
-> **Run `make build` first.** The BMad modules' `references/` and `scripts/`
-> directories are *generated* from the canonical sources (see below) and are
-> git-ignored — a fresh clone does not contain them until you build.
+BMad clones the repo, reads the subdirectory's `.claude-plugin/marketplace.json`,
+and resolves the agent. Drop the `/tree/v1.0.0` ref to track the latest commit on
+the default branch instead of a pinned release.
+
+**How the build runs itself.** The BMad installer runs `npm install` on the
+cloned repo, which triggers this repo's npm `prepare` script (`tools/build.mjs`)
+— so the generated `references/` and `scripts/` are assembled automatically at
+install time. Nothing is built or committed by hand; the canonical sources stay
+the single source of truth.
+
+> Local-path installs still work too (`source: custom`, `localPath:
+> /path/to/claude-plugins/bmad/<module>`) — run `make build` once after cloning,
+> since a local path is used in place rather than `npm install`-ed.
 
 ## Repository layout & the single-source model
 
@@ -98,9 +107,26 @@ redesign and is intentionally out of scope.
 
 ## Building
 
+The build is one dependency-free Node script, `tools/build.mjs`. It runs in
+three places from the same implementation:
+
 ```
-make build    # assemble the BMad module forms from canonical sources
-make clean     # remove the generated BMad artifacts
+make build        # or: npm run build  — manual, for humans
+npm install        # runs it via the `prepare` lifecycle (what BMad triggers on clone)
+make clean         # remove the generated BMad artifacts
+```
+
+CI (`.github/workflows/ci.yml`) runs the build on every push/PR, verifies the
+generated artifacts match their canonical sources, validates the SKILL.md
+frontmatter and JSON manifests, and cuts a GitHub Release on `v*` tags.
+
+### Cutting a release
+
+Tag a commit and push the tag; CI creates the release. BMad's pinned/stable
+channels resolve against pure-semver tags (`vMAJOR.MINOR.PATCH`):
+
+```
+git tag v1.0.0 && git push origin v1.0.0
 ```
 
 ## License

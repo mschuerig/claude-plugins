@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Assemble the BMad module forms exactly as a consumer's install would,
+      # via the npm `prepare` lifecycle (this is what BMad triggers on clone).
+      - name: Assemble BMad modules (npm prepare)
+        run: npm install --no-audit --no-fund
+
+      - name: Verify generated arc42 references match the canonical source
+        run: |
+          diff -r \
+            plugins/arc42-documentation/skills/arc42-documentation/references \
+            bmad/arc42-documentation-architect/agent-arc42-documentation-architect/references
+          echo "arc42 references in sync ✓"
+
+      - name: Verify shared BMad scripts were distributed
+        run: |
+          for m in arc42-documentation-architect/agent-arc42-documentation-architect \
+                   music-domain-expert/agent-music-domain-expert; do
+            test -f "bmad/$m/scripts/merge-config.py"
+            test -f "bmad/$m/scripts/merge-help-csv.py"
+          done
+          echo "shared scripts distributed ✓"
+
+      - name: Validate SKILL.md frontmatter (name + description present)
+        run: |
+          status=0
+          while IFS= read -r f; do
+            head -1 "$f" | grep -q '^---$' || { echo "MISSING frontmatter: $f"; status=1; continue; }
+            awk 'NR>1 && /^---$/{exit} {print}' "$f" | grep -q '^description:' \
+              || { echo "MISSING description: $f"; status=1; }
+          done < <(find plugins bmad -name SKILL.md)
+          [ $status -eq 0 ] && echo "all SKILL.md frontmatter valid ✓"
+          exit $status
+
+      - name: Validate JSON manifests parse
+        run: |
+          for f in $(find . -name '*.json' -not -path './node_modules/*'); do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" \
+              || { echo "INVALID JSON: $f"; exit 1; }
+          done
+          echo "all JSON manifests valid ✓"
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" --generate-notes --title "${GITHUB_REF_NAME}"

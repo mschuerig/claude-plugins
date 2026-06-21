@@ -1,0 +1,13 @@
+{
+  "name": "claude-plugins",
+  "version": "1.0.0",
+  "description": "Claude Code skills + BMad agents, distributed as a plugin marketplace.",
+  "private": true,
+  "license": "MIT",
+  "author": "Michael Schürig <michael@schuerig.de>",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "prepare": "node tools/build.mjs"
+  }
+}
