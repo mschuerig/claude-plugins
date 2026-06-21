@@ -9,7 +9,7 @@
       "name": "arc42-documentation",
       "source": "./plugins/arc42-documentation",
       "description": "Create, update, review, and audit arc42 architecture documentation — the 12-section template with Mermaid diagrams in Markdown.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": { "name": "Michael Schürig" },
       "keywords": ["arc42", "architecture", "documentation", "mermaid"]
     },
@@ -17,7 +17,7 @@
       "name": "music-domain-expert",
       "source": "./plugins/music-domain-expert",
       "description": "Music-domain consultant for software projects — surfaces hidden assumptions in code, specs, and data models that touch theory, tuning, intonation, instruments, or notation.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": { "name": "Michael Schürig" },
       "keywords": ["music", "music-theory", "tuning", "notation", "domain-expert"]
     },
@@ -26,7 +26,7 @@
       "name": "arc42-documentation-architect",
       "source": "./bmad/arc42-documentation-architect/agent-arc42-documentation-architect",
       "description": "BMad agent (Gernot) — creates and maintains arc42 architecture documentation with Mermaid UML diagrams. Install via the BMad installer.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": { "name": "Michael Schürig" },
       "keywords": ["bmad", "arc42", "architecture", "documentation"],
       "skills": ["./bmad/arc42-documentation-architect/agent-arc42-documentation-architect"]
@@ -35,7 +35,7 @@
       "name": "music-domain-expert-agent",
       "source": "./bmad/music-domain-expert/agent-music-domain-expert",
       "description": "BMad agent (Adam) — music theory, tuning, instrument idiomatics, and notation consultant. Install via the BMad installer.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": { "name": "Michael Schürig" },
       "keywords": ["bmad", "music", "music-theory", "domain-expert"],
       "skills": ["./bmad/music-domain-expert/agent-music-domain-expert"]

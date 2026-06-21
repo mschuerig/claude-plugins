@@ -12,7 +12,7 @@
       "name": "music-domain-expert",
       "source": "./",
       "description": "Music theory, tuning systems, instrument idiomatics, and notation consultant for software development teams.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Michael Schürig"
       },

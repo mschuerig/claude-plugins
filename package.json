@@ -1,6 +1,6 @@
 {
   "name": "claude-plugins",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Claude Code skills + BMad agents, distributed as a plugin marketplace.",
   "private": true,
   "license": "MIT",

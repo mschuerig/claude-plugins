@@ -12,7 +12,7 @@
       "name": "arc42-documentation-architect",
       "source": "./",
       "description": "Creates and maintains arc42 architecture documentation with Mermaid UML diagrams.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Michael Schürig"
       },

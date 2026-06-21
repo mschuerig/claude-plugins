@@ -1,7 +1,7 @@
 {
   "name": "music-domain-expert",
   "description": "Music-domain consultant for software projects — surfaces hidden assumptions in code, specs, and data models that touch theory, tuning, intonation, instruments, or notation.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": { "name": "Michael Schürig", "email": "michael@schuerig.de" },
   "keywords": ["music", "music-theory", "tuning", "notation", "domain-expert"],
   "license": "MIT"
